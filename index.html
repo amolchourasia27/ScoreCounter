@@ -1,0 +1,97 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Result Counter Quiz</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle">🌙</button>
+
+    <div class="container">
+        <!-- Setup Section -->
+        <section id="setup-section" class="card section">
+            <h1>Quiz Setup</h1>
+            <form id="setup-form">
+                <div class="form-group">
+                    <label for="total-questions">Number of Questions:</label>
+                    <input type="number" id="total-questions" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="marks-per-question">Marks per Question:</label>
+                    <input type="number" id="marks-per-question" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="partial-marks">Marks for Partial:</label>
+                    <input type="number" id="partial-marks" min="0" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="enable-negative">
+                        <input type="checkbox" id="enable-negative"> Enable Negative Marking
+                    </label>
+                </div>
+                <div class="form-group hidden" id="penalty-group">
+                    <label for="negative-penalty">Negative Penalty (per wrong):</label>
+                    <input type="number" id="negative-penalty" min="0" step="0.1" value="0">
+                </div>
+                <button type="button" id="start-button" class="btn start-btn">Start Quiz</button>
+            </form>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz-section" class="card section hidden">
+            <div class="progress-container">
+                <div class="progress">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <div id="progress-text" class="progress-text">Question 1 of 1</div>
+            </div>
+            <h2 id="question-label">Question 1</h2>
+            <div class="answer-buttons">
+                <button class="btn correct-btn">Correct</button>
+                <button class="btn incorrect-btn">Incorrect</button>
+                <button class="btn partial-btn">Partial</button>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="result-section" class="card section hidden">
+            <h2>Results</h2>
+            <div class="result-counters">
+                <div class="result-item">Total Score: <span id="total-score">0</span></div>
+                <div class="result-item">Correct: <span id="total-correct">0</span></div>
+                <div class="result-item">Incorrect: <span id="total-incorrect">0</span></div>
+                <div class="result-item">Partial: <span id="total-partial">0</span></div>
+                <div class="result-item">Percentage: <span id="percentage">0</span>%</div>
+            </div>
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>Response</th>
+                    </tr>
+                </thead>
+                <tbody id="summary-body">
+                    <!-- Filled by JS -->
+                </tbody>
+            </table>
+            <button id="restart-button" class="btn restart-btn">Restart Quiz</button>
+        </section>
+    </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas" style="display:none;"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

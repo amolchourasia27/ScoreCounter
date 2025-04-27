@@ -1,0 +1,301 @@
+/* style.css */
+/* Base styles */
+:root {
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --secondary-text: #555555;
+    --primary-color: #4e73df;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --warning-color: #fd7e14;
+    --progress-bg: #e9ecef;
+    --progress-fill: #4e73df;
+    --border-radius: 8px;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode {
+    --bg-color: #1f2937;
+    --card-bg: #374151;
+    --text-color: #f3f4f6;
+    --secondary-text: #d1d5db;
+    --primary-color: #60a5fa;
+    --success-color: #34d399;
+    --error-color: #f87171;
+    --warning-color: #fbbf24;
+    --progress-bg: #4b5563;
+    --progress-fill: #60a5fa;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Card layout */
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px var(--shadow);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s;
+}
+
+h1,
+h2 {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--secondary-text);
+}
+
+.form-group input[type="number"],
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(78, 115, 223, 0.2);
+}
+
+/* Hide elements */
+.hidden {
+    display: none;
+}
+
+/* Buttons */
+.btn {
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s, transform 0.1s;
+    color: #fff;
+    margin: 0.25rem;
+}
+
+/* Specific button styles */
+.start-btn {
+    background-color: var(--primary-color);
+}
+
+.start-btn:hover {
+    background-color: #2e59d9;
+}
+
+.restart-btn {
+    background-color: var(--error-color);
+}
+
+.restart-btn:hover {
+    background-color: #c82333;
+}
+
+.correct-btn {
+    background-color: var(--success-color);
+}
+
+.correct-btn:hover {
+    background-color: #1e7e34;
+}
+
+.incorrect-btn {
+    background-color: var(--error-color);
+}
+
+.incorrect-btn:hover {
+    background-color: #c82333;
+}
+
+.partial-btn {
+    background-color: var(--warning-color);
+}
+
+.partial-btn:hover {
+    background-color: #e8590c;
+}
+
+/* Button active press */
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Progress bar */
+.progress-container {
+    margin-bottom: 1.5rem;
+}
+
+.progress {
+    background-color: var(--progress-bg);
+    width: 100%;
+    height: 1rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.progress-fill {
+    background-color: var(--progress-fill);
+    width: 0%;
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+/* Progress text */
+.progress-text {
+    text-align: right;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+
+/* Answer Buttons container */
+.answer-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 400px) {
+    .answer-buttons {
+        flex-direction: row;
+    }
+}
+
+/* Results styling */
+.result-counters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+
+.result-item {
+    flex: 1 1 45%;
+    background-color: var(--card-bg);
+    margin: 0.5rem;
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 2px 8px var(--shadow);
+    color: var(--text-color);
+}
+
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.summary-table th,
+.summary-table td {
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.summary-table th {
+    background-color: var(--bg-color);
+    border-bottom: 2px solid var(--progress-bg);
+}
+
+.summary-table tbody tr:nth-child(even) {
+    background-color: var(--progress-bg);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 100;
+}
+
+.theme-toggle:focus {
+    outline: none;
+}
+
+/* Confetti canvas */
+#confetti-canvas {
+    position: fixed;
+    pointer-events: none;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Animations for section transitions */
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeSlideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.fade-in {
+    animation: fadeSlideIn 0.5s forwards;
+}
+
+.fade-out {
+    animation: fadeSlideOut 0.5s forwards;
+}
